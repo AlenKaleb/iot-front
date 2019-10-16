@@ -27,14 +27,12 @@
         
         
         function eventLed(id, value){
-
-          var originalURLAction = "https://service-iot.herokuapp.com/push_acao?message=";
-          var queryURLAction = "https://cors-anywhere.herokuapp.com/" + originalURLAction
+          var queryURLAction = "http://service-iot.herokuapp.com/push_acao?message={\"id\":"+id+", \"value\":"+value+"}";
           $.ajax({
             url: queryURLAction,
             method: "GET",
-            dataType: "json",
-            data: { id: id, value: value},
+            crossDomain: true,
+            dataType: "jsonp",
             // this headers section is necessary for CORS-anywhere
             headers: {
               "x-requested-with": "xhr" 
@@ -47,12 +45,10 @@
         }
 
         $("#ligar").click(function(){
-          alert(1);
           eventLed(1, 1);
         });
 
         $("#desligar").click(function(){
-          alert(0)
           eventLed(1, 0);
         });
 
