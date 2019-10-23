@@ -47,13 +47,13 @@
         }
 
         $("#ligar").click(function(){
-          alert(1);
-          eventLed(1, 1);
+          //alert($('#id').val());
+          eventLed($('#id').val(), 1);
         });
 
         $("#desligar").click(function(){
-          alert(0)
-          eventLed(1, 0);
+          //alert($('#id').val());
+          eventLed($('#id').val(), 0);
         });
 
         function rand() {
